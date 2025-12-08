@@ -26,7 +26,8 @@ Part B: How would you modify the code so that reassigning `playlist2.songCount` 
 
 ### Response 1
 
-Your response...
+#### Part A:
+The console will log `15`. This is because `playlist1`
 
 **Corrected Code:**
 
