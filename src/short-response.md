@@ -26,16 +26,18 @@ Part B: How would you modify the code so that reassigning `playlist2.songCount` 
 
 ### Response 1
 
-Your response...
+#### Part A:
+The console will log `15`. This is because `playlist1` and `playlist2` both references the same object in memory. Updating `playlist2 .songCount` changes the object itself, so the `playlist1 .songCount` reflects the updated value. 
 
 **Corrected Code:**
 
 ```js
 // fix this!
 const playlist1 = { name: "My Favorites", songCount: 10 };
-const playlist2 = playlist1;
+const playlist2 = { ...playlist1};
 playlist2.songCount = 15;
 console.log(playlist1.songCount);
+console.log(playlist2.songCount);
 ```
 
 ---
@@ -60,7 +62,10 @@ For each task below, identify which array method (forEach, filter, map, find, or
 
 ### Response 2
 
-Your response...
+1. In order to find the students who scored above 85, we would need to use the `.filter` method because it will `return` a new array of students which meets the condition.
+2. In order to find `Destiny` and update the grade, we would need to use the `.find` method so it can locate the specific student object. 
+3. In order to calculate the average grade of all students we have to use the `.reduce` method which will accumulate the sum of all grades to calculate the average.
+4. In order to create an array of strings `"Name: grade"` we can use the `.map` method which transforms each student object into a formatted string.
 
 ---
 
@@ -82,7 +87,20 @@ console.log(upperCaseLetters);
 
 ### Response 3
 
-Your response...
+The error occurs because `capitalize()` calls the function immediately and passes `undefined` to `map`, instead of passing the function itself  `.map` expects a function reference, not the result of a function call.
+
+#### Fix
+Pass the function without parenthesis.
+
+```js
+const letters = ['a', 'b', 'c', 'd'];
+const capitalize = (str) => str.toUpperCase();
+
+const upperCaseLetters = letters.map(capitalize);
+
+console.log(upperCaseLetters);
+
+```
 
 ---
 
@@ -111,4 +129,14 @@ const grandTotal = orders.reduce((sum, order) => {
 
 ### Response 4
 
-Your response...
+#### Part A
+`grandTotal` will equal `135`.
+
+#### Part B
+The `0` at the end of `reduce` the initial value of the accumulator(sum). It is important because it ensures that the first iteration has a valid starting point and prevents errors if the array is empty.
+
+#### Part C
+- sum = 0 (initial value)
+- order = { id : 1, total: 45 } (first element of the array)
+- Returned value = sum + order.total -> 0 + 45 = 45
+The returned value becomes the new sum for the next iteration.
