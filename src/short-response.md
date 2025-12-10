@@ -129,4 +129,14 @@ const grandTotal = orders.reduce((sum, order) => {
 
 ### Response 4
 
-Your response...
+#### Part A
+`grandTotal` will equal `135`.
+
+#### Part B
+The `0` at the end of `reduce` the initial value of the accumulator(sum). It is important because it ensures that the first iteration has a valid starting point and prevents errors if the array is empty.
+
+#### Part C
+- sum = 0 (initial value)
+- order = { id : 1, total: 45 } (first element of the array)
+- Returned value = sum + order.total -> 0 + 45 = 45
+The returned value becomes the new sum for the next iteration.
